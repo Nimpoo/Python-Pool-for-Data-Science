@@ -61,11 +61,16 @@ if __name__ == '__main__':
     str = ""
     res = 0
 
-    if len(sys.argv) > 2:
-        print("AssertionError: more than one argument are provided")
+    try:
+        if (len(sys.argv) > 2):
+            raise AssertionError("AssertionError: more than one argument are provided")
+        #assert sys.argv == 2, ""
+    except AssertionError as e:
+        # print("AssertionError: more than one argument are provided")
+        print(str(e))
         sys.exit()
 
-    elif len(sys.argv) == 1:
+    if len(sys.argv) == 1:
         print("What is the text to count?")
         for line in sys.stdin:
             str += line
