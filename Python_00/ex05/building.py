@@ -60,14 +60,13 @@ if __name__ == '__main__':
 
     str = ""
     res = 0
+    
+    assertionError = "AssertionError: more than one argument are provided"
 
     try:
-        if (len(sys.argv) > 2):
-            raise AssertionError("AssertionError: more than one argument are provided")
-        #assert sys.argv == 2, ""
+        assert len(sys.argv) <= 2, assertionError
     except AssertionError as e:
-        # print("AssertionError: more than one argument are provided")
-        print(str(e))
+        print(e)
         sys.exit()
 
     if len(sys.argv) == 1:
