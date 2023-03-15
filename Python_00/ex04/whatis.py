@@ -6,7 +6,7 @@
 #    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:04:53 by mayoub            #+#    #+#              #
-#    Updated: 2023/03/16 00:01:23 by sihemayoub       ###   ########.fr        #
+#    Updated: 2023/03/16 00:42:50 by sihemayoub       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,6 @@ if __name__ == '__main__':
 		assert sys.argv[1].isdigit(), assertionError2
 	except AssertionError as e:
 		print(e)
-		sys.exit()
-	except AssertionError as e:
-		print(str(e));
 		sys.exit()
 
 	# Odd or Even
