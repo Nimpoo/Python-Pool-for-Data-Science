@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     str = ""
     res = 0
-    
+
     assertionError = "AssertionError: more than one argument are provided"
 
     try:
