@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    whatis.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
+#    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:04:53 by mayoub            #+#    #+#              #
-#    Updated: 2023/03/15 15:49:21 by mayoub           ###   ########.fr        #
+#    Updated: 2023/03/16 00:01:23 by sihemayoub       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,28 @@ import sys
 
 if __name__ == '__main__':
 
+	assertionError = "AssertionError: more than one argument are provided"
+	assertionError2 = "AssertionError: argument is not an integer"
+
 	# No args
 	if len(sys.argv) < 2:
 		sys.exit()
 
 	# More than 2 args
-	if len(sys.argv) > 2:
-		print("AssertionError: more than one argument are provided")
+	try:
+		assert len(sys.argv) <= 2, assertionError2
+	except AssertionError as e:
+		print(e)
 		sys.exit()
 
 	# If arg is not number
 	try:
-		int(sys.argv[1])
-	except ValueError:
-		print("AssertionError: argument is not an integer");
+		assert sys.argv[1].isdigit(), assertionError2
+	except AssertionError as e:
+		print(e)
+		sys.exit()
+	except AssertionError as e:
+		print(str(e));
 		sys.exit()
 
 	# Odd or Even
