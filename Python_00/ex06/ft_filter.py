@@ -1,19 +1,11 @@
-import sys
+def ft_filter(function, iterable):
 
+    '''filter(function or None, iterable) --> filter object
 
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true.'''
 
-
-
-if __name__ == '__main__':
-
-    print(filter.__doc__)
-
-
-
-
-
-
-    numbers = [-2, -1, 0, 1, 2]
-
-    nbr = list(filter(lambda n: n > 0, numbers))
-    print(nbr)
+    if (function is None):
+        return ( [x for x in iterable if x] )
+    else:
+        return ( [x for x in iterable if function(x)] )
