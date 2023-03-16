@@ -6,7 +6,7 @@
 #    By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 12:11:06 by mayoub            #+#    #+#              #
-#    Updated: 2023/03/15 18:11:06 by mayoub           ###   ########.fr        #
+#    Updated: 2023/03/16 14:01:29 by mayoub           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,5 +26,5 @@ if __name__ == '__main__':
 	str_scientific = '{:.2e}'.format(tmp)
 
 	print("Seconds since January 1, 1970:", str_display, "or", str_scientific, "in scientific notation")
-	print(month.strftime("%B %a %y"))
+	print(month.strftime("%b %d %y"))
 	

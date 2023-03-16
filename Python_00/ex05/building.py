@@ -9,7 +9,8 @@ def nbr_upper_letters(str):
     for c in str:
         if c.isupper():
             res += 1
-    print(res, "upper letters")
+
+    return (res)
 
 
 def nbr_lower_letters(str):
@@ -20,7 +21,8 @@ def nbr_lower_letters(str):
     for c in str:
         if c.islower():
             res += 1
-    print(res, "lower letters")
+
+    return (res)
 
 
 def nbr_spaces(str):
@@ -31,7 +33,8 @@ def nbr_spaces(str):
     for c in str:
         if c.isspace():
             res += 1
-    print(res, "spaces")
+
+    return (res)
 
 
 def nbr_ponctuations(str):
@@ -42,7 +45,8 @@ def nbr_ponctuations(str):
     for c in str:
         if c in ("!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~"):
             res += 1
-    print(res, "ponctuation marks")
+
+    return (res)
 
 
 def nbr_digits(str):
@@ -53,13 +57,13 @@ def nbr_digits(str):
     for c in str:
         if c.isdigit():
             res += 1
-    print(res, "digits")
+
+    return (res)
 
 
 if __name__ == '__main__':
 
     str = ""
-    res = 0
 
     assertionError = "AssertionError: more than one argument are provided"
 
@@ -78,13 +82,13 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2:
         str = sys.argv[1]
 
-    for c in str:
-        res += 1
+    total = nbr_upper_letters(str) + nbr_lower_letters(str)
+    total += nbr_ponctuations(str) + nbr_spaces(str) + nbr_digits(str)
 
-    print("The text contains", res, "characters:")
+    print("The text contains", total, "characters:")
 
-    nbr_upper_letters(str)
-    nbr_lower_letters(str)
-    nbr_spaces(str)
-    nbr_ponctuations(str)
-    nbr_digits(str)
+    print(nbr_upper_letters(str), "upper letters")
+    print(nbr_lower_letters(str), "lower letters")
+    print(nbr_ponctuations(str), "ponctuation marks")
+    print(nbr_spaces(str), "spaces")
+    print(nbr_digits(str), "digits")
