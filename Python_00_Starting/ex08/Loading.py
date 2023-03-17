@@ -1,8 +1,7 @@
-from tqdm import tqdm
-
 def ft_tqdm(lst: range) -> None:
 
-    '''\n    Decorate an iterable object, returning an iterator which acts exactly
+    '''\n    Decorate an iterable object,
+    returning an iterator which acts exactly
     like the original iterable, but prints a dynamically updating
     progressbar every time a value is requested.\n'''
 
@@ -15,6 +14,8 @@ def ft_tqdm(lst: range) -> None:
 
         bar = "=" * int(ratio + 1)
 
-        print(f"\r{i:3.0f}%|[", f"{bar:64}]| {elem + 1}/{len(lst)}", end='', flush = True)
+        print(
+            f"\r{i:3.0f}%|[",
+            f"{bar:64}]| {elem + 1}/{len(lst)}", end='', flush=True)
 
         yield elem
