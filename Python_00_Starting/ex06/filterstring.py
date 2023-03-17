@@ -15,4 +15,4 @@ if __name__ == '__main__':
         print(e)
         sys.exit()
 
-    print( list(ft_filter(lambda x : len(x) > int(argv[2]), argv[1].split(' '))) )
+    print(list(ft_filter(lambda x: len(x) > int(argv[2]), argv[1].split(' '))))
