@@ -1,5 +1,4 @@
 def count_in_list(lst: list, occurence: str) -> int:
-
     '''Count the number of occurence and return it'''
 
     res = 0
