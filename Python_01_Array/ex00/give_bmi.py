@@ -47,8 +47,8 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
 
     for elem in bmi:
         if elem < float(limit):
-            lst_bool.append(True)
-        else:
             lst_bool.append(False)
+        else:
+            lst_bool.append(True)
 
     return (lst_bool)
