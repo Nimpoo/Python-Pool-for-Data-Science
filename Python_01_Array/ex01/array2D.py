@@ -7,30 +7,33 @@ def slice_me(family: list, start: int, end: int) -> list:
 return the familit to start from end, return empty
 list if it's not valid'''
 
-    error_type = "TypeError: pls enter a int/float type"
-    error_type_list = "TypeError: pls enter a list"
+    error_type = "TypeError: bad type input"
 
-    if not isinstance(family, list):
-        print(error_type_list)
-        return (list([]))
+    try:
+        if not isinstance(family, list):
+            raise TypeError
 
-    for elem in family:
-        if not isinstance(elem, list):
-            print(error_type_list)
-            return (list([]))
+        for elem in family:
+            if not isinstance(elem, list):
+                raise TypeError
+            for elem_2 in elem:
+                if not isinstance(elem_2, int) and not isinstance(elem_2, float):
+                    raise TypeError
 
-    if not isinstance(start, int) and not isinstance(start, float):
+        if not isinstance(start, int) and not isinstance(start, float):
+            raise TypeError
+
+        if not isinstance(end, int) and not isinstance(end, float):
+            raise TypeError
+
+    except TypeError:
         print(error_type)
-        return (list([]))
-
-    if not isinstance(end, int) and not isinstance(end, float):
-        print(error_type)
-        return (list([]))
+        exit()
 
     np_family = np.array(family)
     print(f"My shape is : {np_family.shape}")
 
-    np_family_sliced = np_family[start:end:,]
+    np_family_sliced = np_family[start:end]
     print(f"My new shape is : {np_family_sliced.shape}")
 
     return (np_family_sliced.tolist())
