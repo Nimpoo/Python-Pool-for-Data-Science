@@ -9,6 +9,8 @@ list if it's not valid'''
 
     error_type = "TypeError: bad type input"
 
+    len_list = len(family[0])
+
     try:
         if not isinstance(family, list):
             raise TypeError
@@ -16,7 +18,7 @@ list if it's not valid'''
         for elem in family:
             if not isinstance(elem, list):
                 raise TypeError
-            if len(elem) != 2:
+            if len(elem) != len_list:
                 raise TypeError
             for elem2 in elem:
                 if not isinstance(elem2, int) and not isinstance(elem2, float):
