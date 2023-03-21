@@ -8,19 +8,23 @@ def give_bmi(height: list[int | float],
 
     error_type = "TypeError: bad type input"
     error_divide_zero = "ZeroDivisionError: pls use real number"
+    error_len_list = "ValueError: use 2 list with the same lengh plz"
 
     try:
         if not isinstance(height, list) or not isinstance(weight, list):
             raise TypeError
 
+        if len(height) != len(weight):
+            raise ValueError
+
         for elem in height:
-            if elem < 0:
+            if elem <= 0:
                 raise ZeroDivisionError
             if not isinstance(elem, int) and not isinstance(elem, float):
                 raise TypeError(error_type)
 
         for elem in weight:
-            if elem < 0:
+            if elem <= 0:
                 raise ZeroDivisionError
             if not isinstance(elem, int) and not isinstance(elem, float):
                 raise TypeError(error_type)
@@ -30,6 +34,9 @@ def give_bmi(height: list[int | float],
         exit()
     except TypeError:
         print(error_type)
+        exit()
+    except ValueError:
+        print(error_len_list)
         exit()
 
     np_height = np.array(height)
