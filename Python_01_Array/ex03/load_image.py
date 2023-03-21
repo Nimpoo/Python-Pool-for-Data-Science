@@ -10,6 +10,7 @@ def ft_load(path: str) -> np.array:
     copy of his numpy array'''
 
     error_type = "TypeError: pls enter a str type"
+    error_permi = "PermissionError: permission denied"
 
     try:
         if not isinstance(path, str):
@@ -26,6 +27,9 @@ def ft_load(path: str) -> np.array:
         return (None)
     except AttributeError as e:
         print(e)
+        return (None)
+    except PermissionError:
+        print(error_permi)
         return (None)
 
     np_image = np.array(img)
