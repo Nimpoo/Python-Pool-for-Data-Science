@@ -14,7 +14,11 @@ def ft_load(path: str) -> np.array:
         return (None)
 
     try:
+        if not isinstance(path, str):
+            raise TypeError
+
         img = Image.open(path)
+
     except FileNotFoundError as e:
         print(e)
         return (None)
