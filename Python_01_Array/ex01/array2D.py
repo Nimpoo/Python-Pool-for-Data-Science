@@ -16,14 +16,20 @@ list if it's not valid'''
         for elem in family:
             if not isinstance(elem, list):
                 raise TypeError
+            if len(elem) != 2:
+                raise TypeError
             for elem2 in elem:
                 if not isinstance(elem2, int) and not isinstance(elem2, float):
                     raise TypeError
 
         if not isinstance(start, int) and not isinstance(start, float):
             raise TypeError
+        if type(elem) == bool:
+            raise TypeError
 
         if not isinstance(end, int) and not isinstance(end, float):
+            raise TypeError
+        if type(elem) == bool:
             raise TypeError
 
     except TypeError:
