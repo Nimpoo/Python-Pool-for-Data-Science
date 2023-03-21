@@ -22,13 +22,16 @@ def give_bmi(height: list[int | float],
                 raise ZeroDivisionError
             if not isinstance(elem, int) and not isinstance(elem, float):
                 raise TypeError(error_type)
+            if type(elem) == bool:
+                raise TypeError(error_type)
 
         for elem in weight:
             if elem <= 0:
                 raise ZeroDivisionError
             if not isinstance(elem, int) and not isinstance(elem, float):
                 raise TypeError(error_type)
-
+            if type(elem) == bool:
+                raise TypeError(error_type)
     except ZeroDivisionError:
         print(error_divide_zero)
         exit()
