@@ -16,6 +16,9 @@ def ft_load(path: str) -> np.array:
         if not isinstance(path, str):
             raise TypeError
 
+        if not path.endswith(".jpeg") or not path.endswith(".jpg"):
+            raise TypeError
+
         img = Image.open(path)
         img_gray = Image.open(path).convert("L")
 
