@@ -11,14 +11,20 @@ def ft_load(path: str) -> np.array:
 
     error_type = "TypeError: pls enter a str type"
 
-    if not isinstance(path, str):
+    try:
+        if not isinstance(path, str):
+            raise TypeError
+
+        img = Image.open(path)
+        img_gray = Image.open(path).convert("L")
+
+    except FileNotFoundError as e:
+        print(e)
+        return (None)
+    except TypeError:
         print(error_type)
         return (None)
-
-    try:
-        img = Image.open(path)
-        img_gray = Image.open(path).convert('L')
-    except FileNotFoundError as e:
+    except AttributeError as e:
         print(e)
         return (None)
 
@@ -26,9 +32,9 @@ def ft_load(path: str) -> np.array:
     np_image_gray = np.array(img_gray)
 
     try:
-        x1, x2, y1, y2 = 100, 500, 450, 850
+        x1, x2, y1, y2 = 450, 850, 100, 500
 
-        np_image_gray = np_image_gray[x1:x2, y1:y2]
+        np_image_gray = np_image_gray[y1:y2, x1:x2]
 
         np_image_gray = np_image_gray.transpose()
 

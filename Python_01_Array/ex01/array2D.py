@@ -16,8 +16,8 @@ list if it's not valid'''
         for elem in family:
             if not isinstance(elem, list):
                 raise TypeError
-            for elem_2 in elem:
-                if not isinstance(elem_2, int) and not isinstance(elem_2, float):
+            for elem2 in elem:
+                if not isinstance(elem2, int) and not isinstance(elem2, float):
                     raise TypeError
 
         if not isinstance(start, int) and not isinstance(start, float):

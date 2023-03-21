@@ -11,14 +11,20 @@ def ft_load(path: str) -> np.array:
 
     error_type = "TypeError: pls enter a str type"
 
-    if not isinstance(path, str):
-        print(error_type)
-        return (None)
-
     try:
+        if not isinstance(path, str):
+            raise TypeError
+
         img = Image.open(path)
         img_gray = Image.open(path).convert("L")
+
     except FileNotFoundError as e:
+        print(e)
+        return (None)
+    except TypeError:
+        print(error_type)
+        return (None)
+    except AttributeError as e:
         print(e)
         return (None)
 
