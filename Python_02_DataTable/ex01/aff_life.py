@@ -59,6 +59,9 @@ def main():
     plt.xlabel("Year")
     # * Set the y-axis
     plt.ylabel("Life expectancy")
+    # * Set 0 to 2080 in x-axis
+    plt.xticks([i for i in range(1800, 2081, 40)])
+
     # ! Plot the graph with the x-axis 'Years'
     # ! (lst_int_list) and 'Life expectancy' (flat_lst_values)
     plt.plot(lst_int_years, flat_lst_values)
