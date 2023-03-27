@@ -11,7 +11,7 @@ def main():
     instead of another country
 
     /---------- Arguments ----------/
-    Nothing 
+    Nothing
 
     /----------- Return ------------/
     Return nothing
@@ -20,8 +20,13 @@ def main():
     try:
         data_frame = load("population_total.csv")
 
-        years_france = data_frame.loc[data_frame["country"] == "France"]
-        years_morocco = data_frame.loc[data_frame["country"] == "Morocco"]
+        pop_fr = data_frame.loc[data_frame["country"] == "France"]
+        pop_fr = pop_fr.iloc[:, 1:]
+        pop_fr = pop_fr.applymap(lambda x: float(x.strip("M")))
+
+        pop_bg = data_frame.loc[data_frame["country"] == "Belgium"]
+        pop_bg = pop_bg.iloc[:, 1:]
+        pop_bg = pop_bg.applymap(lambda x: float(x.strip("M")))
 
     except AttributeError:
         print("AttributeError: plz use a .csv valid file")
@@ -30,34 +35,17 @@ def main():
         print(e)
         return (None)
 
-
-    lst_years_france = years_france.columns.to_list()
-    lst_values_france = [val for sublist in years_france.values.tolist() for val in sublist]
-
-    lst_years_morocco = years_morocco.columns.to_list()
-    lst_values_morocco = [val for sublist in years_morocco.values.tolist() for val in sublist]
-
-
-    lst_years_france.pop(0)
-    lst_values_france.pop(0)
-
-    lst_years_morocco.pop(0)
-    lst_values_morocco.pop(0)
-
-
-    lst_int_years_france = [year for year in lst_years_france]
-    lst_int_years_morocco = [year for year in lst_years_morocco]
-
-
     plt.title("Life Expectancy Projections")
 
     plt.xlabel("Year")
     plt.ylabel("Life Expectancy")
-
-    plt.xticks([i for i in range(1800, 2081, 40)])
-
-    plt.plot(lst_int_years_france, lst_values_france, label="France")
-    plt.plot(lst_int_years_morocco, lst_values_morocco, label="Morocco")
+    fig, axe = plt.subplots()
+    axe.set_yticks([3, 14, 28, 40, 70])
+    axe.set_yticklabels(["3M", "14M", "28M", "40M", "70M"])
+    plt.xticks(range(1800, 2081, 40))
+    years = pop_fr.columns.values.astype(int)
+    plt.plot(years, pop_fr.values[0], label="France")
+    plt.plot(years, pop_bg.values[0], label="Belgium")
 
     plt.legend(loc="lower right")
 
